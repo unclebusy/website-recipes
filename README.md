@@ -2,7 +2,7 @@
 A website application built on React, with which you can search for recipes in a database with the ability to subsequently view and filter.
 
 ## Use stack
-React, React Router, Redux, Axios, Material-UI, Formik, Yup, Jest, React Testing Library, ESLint, Prettier, Husky, Lodash, GitHub Actions, Firebase.
+CSS, JS, React, Redux, Axios, Material-UI, ESLint, Prettier, Husky, Lodash
 
 ## Installation
 ```sh
