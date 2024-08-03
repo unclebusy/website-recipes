@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getAllCategories } from "../api";
-import {useLocation, useNavigate} from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import Preloader from "../components/Preloader";
 import CategoryList from "../components/CategoryList";
@@ -27,8 +27,8 @@ function Home() {
         const searchStr = search.split("=")[1];
         setFilteredCatalog( search ?
             data.categories.filter(item =>
-            item.strCategory.toLowerCase().includes(searchStr.toLowerCase())
-        ) : data.categories);
+                item.strCategory.toLowerCase().includes(searchStr.toLowerCase())
+            ) : data.categories);
       } else {
         setFilteredCatalog(data.categories);
       }

@@ -12,7 +12,7 @@ import Recipe from "./pages/Recipe";
 function App() {
   return (
       <>
-        <Router basename="/react-recipes">
+        <Router >
           <Header />
           <main className="container content">
             <Routes>
@@ -31,6 +31,3 @@ function App() {
 }
 
 export default App;
-
-
-

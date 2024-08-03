@@ -1,15 +1,14 @@
-import {useParams, useNavigate} from "react-router-dom";
-import {useEffect, useState} from "react";
-import {getMealById} from "../api";
+import { useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getMealById } from "../api";
 import Preloader from "../components/Preloader";
 
 function Recipe() {
   const [recipe, setRecipe] = useState({});
-  const {id} = useParams();
+  const { id } = useParams();
 
- const navigate = useNavigate();
- const goBack = () => navigate(-1);
-
+  const navigate = useNavigate();
+  const goBack = () => navigate(-1);
 
   useEffect(() => {
     getMealById(id).then(data => setRecipe(data.meals[0]));
@@ -27,45 +26,42 @@ function Recipe() {
 
               <table className='centered'>
                 <thead>
-                  <tr>
-                    <th>Ingredient</th>
-                    <th>Measure</th>
-                  </tr>
+                <tr>
+                  <th>Ingredient</th>
+                  <th>Measure</th>
+                </tr>
                 </thead>
                 <tbody>
-                  {
-                    Object.keys(recipe).map(key => {
-                      if(key.includes('Ingredient') && recipe[key]) {
-                        return (
-                            <tr key={key}>
-                              <td>{recipe[key]}</td>
-                              <td>{
-                                recipe[`strMeasure${key.slice(13)}`]
-                              }</td>
-                            </tr>
-                        )
-                      } else {
-                        return null;
-                      }
-                    })
-                  }
+                {
+                  Object.keys(recipe).map(key => {
+                    if(key.includes('Ingredient') && recipe[key]) {
+                      return (
+                          <tr key={key}>
+                            <td>{recipe[key]}</td>
+                            <td>{
+                              recipe[`strMeasure${key.slice(13)}`]
+                            }</td>
+                          </tr>
+                      )
+                    } else {
+                      return null;
+                    }
+                  })
+                }
                 </tbody>
               </table>
 
               {recipe.strYoutube ? (
                   <div className='row'>
                     <h5 style={{margin: '2rem 0 1.5rem'}}>Video Recipe</h5>
-                    <iframe title={id} src={`https://www.youtube.com/embed/${recipe.strYoutube.slice(-11)}`} allowfullscreen />
+                    <iframe title={id} src={`https://www.youtube.com/embed/${recipe.strYoutube.slice(-11)}`} allowFullScreen />
                   </div>
-              ) :
-                  null
-              }
+              ) : null}
             </div>
         )}
         <button className="btn" onClick={goBack}>Go Back</button>
       </>
   )
-
 }
 
 export default Recipe;

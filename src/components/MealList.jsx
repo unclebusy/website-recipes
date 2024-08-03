@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-
 import Meal from "./Meal";
 
 function MealList({ meals }) {
@@ -8,12 +7,12 @@ function MealList({ meals }) {
 
   return (
       <>
-          <button className="btn" onClick={goBack}>Go Back</button>
-          <div className='list'>
-            {meals.map(meal => (
-                <Meal key={meal.idMeal} {...meal} />
-            ))}
-          </div>
+        <button className="btn" onClick={goBack}>Go Back</button>
+        <div className='list'>
+          {meals.map(meal => (
+              <Meal key={meal.idMeal} {...meal} />
+          ))}
+        </div>
       </>
   );
 }

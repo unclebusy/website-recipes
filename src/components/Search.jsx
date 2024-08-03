@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function Search({ cb = Function.prototype }) {
-  const [value, setValue ] = useState('');
+  const [value, setValue] = useState('');
 
   const handleKey = (e) => {
     if (e.key === 'Enter') {
